@@ -31,7 +31,7 @@ export const fetchBooks = (searchText) =>  {
 
     const responseData = await response.json();
     console.log('Data from API:', responseData);
-    dispatch(setBooks(responseData));
+    dispatch(setBooks(responseData.data));
 
     // Optionally, you can filter the books here based on the searchText before dispatching setBooks action
   } catch (error) {
