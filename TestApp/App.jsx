@@ -1,6 +1,7 @@
 
 import React, {useEffect} from 'react';
-import Navigator from './src/navigation/Navigator';
+
+import Book from './src/screens/Book';
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
   //   }
   // }, [userData]);
 
-  return <Navigator/>;
+  return <Book/>;
 };
 
 export default App;
