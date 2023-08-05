@@ -2,8 +2,10 @@ import React, {useEffect} from 'react';
 import {View, Text, TextInput, FlatList} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {setSearchText, fetchBooks} from '../../redux/actions/actions';
+import MovieCard from '../components/MovieCard';
 
 const Book = () => {
+
   const dispatch = useDispatch();
   const books = useSelector(state => state.books);
   const searchText = useSelector(state => state.searchText);
@@ -13,11 +15,18 @@ const Book = () => {
   }, [searchText, dispatch]);
 
   const renderItem = ({item}) => (
-    <View style={{padding: 10}}>
-      <Text style={{color: 'black'}}>Title: {item.title}</Text>
-      <Text style={{color: 'black'}}>Author: {item.author}</Text>
-      {/* Add any other properties you want to display */}
-    </View>
+  
+    // <View style={{padding: 10}}>
+    //   <Text style={{color: 'black'}}>Title: {item.title}</Text>
+    //   <Text style={{color: 'black'}}>Author: {item.author}</Text>
+    //   {/* Add any other properties you want to display */}
+    // </View>
+
+<View style={{flexDirection:'row'}}>
+
+  <MovieCard item={item} imageLink={item.imageLink} />
+</View>
+
   );
 
   return (
@@ -35,7 +44,8 @@ const Book = () => {
         onChangeText={text => dispatch(setSearchText(text))}
         placeholderTextColor={'black'}
       />
-      <FlatList
+      <FlatList 
+      
         data={books}
         renderItem={renderItem}
         keyExtractor={item =>

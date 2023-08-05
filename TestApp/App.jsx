@@ -1,21 +1,24 @@
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import React, {useEffect} from 'react';
-
-import Book from './src/screens/Book';
-
+import SplashScreen from './src/screens/Splash/SplashScreen';
+import Navigator from './src/navigation/Navigator';
 
 const App = () => {
-  // const userData = useSelector(state => state.userEmail);
-  // const splash = useSelector(state => state.splash_screen);
-  // const dispatch = useDispatch(state => state.splash_screen);
-  // console.log('userData ==>', userData);
-  // useEffect(() => {
-  //   if (userData) {
-  //     dispatch({type: SPLASH_SCREEN, payload: 'red'});
-  //   }
-  // }, [userData]);
+  const [loading, setLoading] = useState(true);
+  // Other code ...
 
-  return <Book/>;
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  return (
+    <>
+      {loading ? <SplashScreen /> : <Navigator />}
+    </>
+  );
 };
 
 export default App;
