@@ -10,11 +10,11 @@ import {LikeButton} from './Buttons/LikeButton';
 import {Font} from '../utils/font';
 import StarRating from 'react-native-star-rating-widget';
 
-const MovieCard = ({item}) => {
+const MovieCard = ({item,onPress}) => {
   const [rating, setRating] = useState(0);
   return (
     <View style={styles.mainView}> 
-      <TouchableOpacity style={styles.card}>
+      <TouchableOpacity onPress={onPress} style={styles.card}>
         <ImageBackground
           style={styles.backgroundImg}
           resizeMode="cover"

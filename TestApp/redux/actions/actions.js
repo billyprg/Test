@@ -59,9 +59,7 @@ export const fetchBooks = (searchText) => {
       }
 
       const responseData = await response.json();
-      console.log('Data from API:', responseData);
 
-      // Apply the search filter based on the title name
       const filteredData = responseData.data.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       );
