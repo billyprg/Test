@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     likeView:{
         backgroundColor: 'white',
         borderRadius: 30,
-        padding:5
+        padding:5,
+
     }
   });
   

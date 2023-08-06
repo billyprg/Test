@@ -3,7 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import Book from '../screens/Book';
-import SingleBook from '../screens/Splash/SingleBook';
+import SingleBook from '../screens/SingleBook';
+
 const Navigator = () => {
   const Stack = createNativeStackNavigator();
   return (

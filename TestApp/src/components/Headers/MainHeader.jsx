@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View, Image, StatusBar} from 'react-native';
 import React from 'react';
 import {Font} from '../../utils/font';
+import { Colors } from '../../utils/Color';
 
 const MainHeader = () => {
   return (
@@ -25,14 +26,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     paddingVertical:10,
-    backgroundColor: 'white',
+    backgroundColor: Colors.White,
     alignItems:'center',
   },
 
   heading: {
     fontSize: 18,
     color: 'black',
-    fontFamily: Font.PoppinsBold,
+    fontFamily: Font.PoppinsMedium,
   },
 
   imageView: {

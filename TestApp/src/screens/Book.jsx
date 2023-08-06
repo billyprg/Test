@@ -15,6 +15,9 @@ import {setSearchText, fetchBooks} from '../../redux/actions/actions';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MovieCard from '../components/MovieCard';
 import MainHeader from '../components/Headers/MainHeader';
+import { Colors } from '../utils/Color';
+import { moderateScale } from 'react-native-size-matters';
+import { Font } from '../utils/font';
 
 const Book = ({navigation}) => {
   const dispatch = useDispatch();
@@ -45,20 +48,11 @@ const Book = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#FAFAFA'}}>
+    <SafeAreaView style={{flex: 1, backgroundColor:Colors.White,paddingHorizontal:moderateScale(10)}}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <MainHeader />
       <View
-        style={{
-          backgroundColor: '#EFEFEF',
-          width: `95%`,
-          alignSelf: 'center',
-          paddingHorizontal: 10,
-          borderRadius: 100,
-          marginVertical: 10,
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
+        style={styles.searchBox}>
         <Ionicons
           name="search-sharp"
           color="black"
@@ -69,11 +63,12 @@ const Book = ({navigation}) => {
           placeholder="Search..."
           value={searchText}
           onChangeText={text => dispatch(setSearchText(text))}
-          placeholderTextColor='#000'
+          placeholderTextColor= {Colors.Black}
           style={{
             width: `80%`,
-            color: '#000',
+            color: Colors.Black,
           }}
+        
           enterKeyHint='search'
         />
       </View>
@@ -97,3 +92,18 @@ const Book = ({navigation}) => {
 };
 
 export default Book;
+
+const styles = StyleSheet.create({
+searchBox:{
+  
+    backgroundColor: Colors.SearchBox,
+    width: `95%`,
+    alignSelf: 'center',
+    paddingHorizontal: 10,
+    borderRadius: 100,
+    marginVertical: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+  
+}
+})
