@@ -11,31 +11,65 @@ export const setBooks = (books) => ({
   payload: books,
 });
 
-export const fetchBooks = (searchText) =>  {
-    return async (dispatch) => {
-  try {
-    const headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'x-api-key': API_KEY,
-    };
+// export const fetchBooks = (searchText) =>  {
+//     return async (dispatch) => {
+//   try {
+//     const headers = {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//       'x-api-key': API_KEY,
+//     };
 
-    const response = await fetch(API_URL, {
-      method: 'GET',
-      headers: headers,
-    });
+//     const response = await fetch(API_URL, {
+//       method: 'GET',
+//       headers: headers,
+//     });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+
+//     const responseData = await response.json();
+//     console.log('Data from API:', responseData);
+//     dispatch(setBooks(responseData.data.slice(0,15)));
+
+//     // Optionally, you can filter the books here based on the searchText before dispatching setBooks action
+//   } catch (error) {
+//     console.error('Error fetching books:', error);
+//   }
+//   }
+// };
+
+export const fetchBooks = (searchText) => {
+  return async (dispatch) => {
+    try {
+      const headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+      };
+
+      const response = await fetch(API_URL, {
+        method: 'GET',
+        headers: headers,
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const responseData = await response.json();
+      console.log('Data from API:', responseData);
+
+      // Apply the search filter based on the title name
+      const filteredData = responseData.data.filter((item) =>
+        item.title.toLowerCase().includes(searchText.toLowerCase())
+      );
+
+      dispatch(setBooks(filteredData.slice(0, 15)));
+
+    } catch (error) {
+      console.error('Error fetching books:', error);
     }
-
-    const responseData = await response.json();
-    console.log('Data from API:', responseData);
-    dispatch(setBooks(responseData.data));
-
-    // Optionally, you can filter the books here based on the searchText before dispatching setBooks action
-  } catch (error) {
-    console.error('Error fetching books:', error);
-  }
-  }
+  };
 };
