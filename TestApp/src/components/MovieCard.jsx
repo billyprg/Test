@@ -10,31 +10,39 @@ import {LikeButton} from './Buttons/LikeButton';
 import {Font} from '../utils/font';
 import StarRating from 'react-native-star-rating-widget';
 import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import { Colors } from '../utils/Color';
 
 const MovieCard = ({item, onPress}) => {
   const [rating, setRating] = useState(0);
   return (
-    <View style={styles.mainView}>
-      <TouchableOpacity onPress={onPress} style={styles.card}>
+    <TouchableOpacity onPress={onPress} style={styles.mainView}>
+      <View style={styles.imgView}>
         <ImageBackground
           style={styles.backgroundImg}
           resizeMode="cover"
           source={{uri: item.imageLink}}>
-          <View style={styles.LikeView}>
+          <View style={styles.likeView}>
             <LikeButton />
           </View>
         </ImageBackground>
-      </TouchableOpacity>
-      <View style={{marginLeft: 15}}>
-        <Text numberOfLines={3} style={styles.title}>{item.title}</Text>
-        <View style={{flexDirection: 'row',alignItems:'center'}}>
+      </View>
+      <View
+        style={{
+          height: '30%',
+          paddingHorizontal: moderateScale(5),
+          marginTop: verticalScale(5),
+        }}>
+        <Text numberOfLines={1} style={styles.title}>
+          {item.title}
+        </Text>
+        <View style={styles.starView}>
           <StarRating rating={item.rating} onChange={setRating} starSize={18} />
 
           <Text style={styles.review}>({item.reviews})</Text>
         </View>
         <Text style={styles.title}>${item.price}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -42,44 +50,52 @@ export default MovieCard;
 
 const styles = StyleSheet.create({
   mainView: {
-    // alignItems:'center',
-    // justifyContent:'center'/
+    height: verticalScale(330),
+    width: '45%',
+    marginLeft: scale(12),
+    marginBottom: verticalScale(10),
+  },
+  imgView: {
+    height: '70%',
+    borderRadius: scale(20),
+    backgroundColor: 'red',
+    overflow: 'hidden',
   },
   card: {
-    height: 220,
-    width: 150,
+    height: verticalScale(220),
+    width: scale(150),
     borderRadius: scale(16),
-
     overflow: 'hidden',
-    marginVertical: 15,
-    marginHorizontal: 10,
-
-    // paddingHorizontal: 20,
+    marginVertical: verticalScale(15),
+    marginHorizontal: moderateScale(10),
   },
-  LikeView: {
+  starView: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  likeView: {
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
-    marginTop: 10,
-    marginRight: 10,
+    marginTop: verticalScale(10),
+    marginRight: moderateScale(10)
   },
   backgroundImg: {
     flex: 1,
     height: '100%',
     width: '100%',
+    borderRadius: scale(20),
   },
 
   title: {
     fontFamily: Font.PoppinsMedium,
-    fontSize: scale(15),
-    color: 'black',
-    marginTop: 5,
-
+    fontSize: scale(14),
+    color: Colors.Black,
   },
   review: {
     fontFamily: Font.PoppinsLight,
     fontSize: scale(14),
-    color: 'black',
-    marginTop: 5,
-    
+    color: Colors.Black,
+    marginTop: verticalScale(5)
   },
 });

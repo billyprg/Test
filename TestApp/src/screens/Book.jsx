@@ -33,22 +33,15 @@ const Book = ({navigation}) => {
   }, 5000);
 
   const renderItem = ({item}) => (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
       <MovieCard
         onPress={() => navigation.navigate('SingleBook',{item:item})}
         item={item}
         imageLink={item.imageLink}
       />
-    </View>
   );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor:Colors.White,paddingHorizontal:moderateScale(10)}}>
+    <SafeAreaView style={{flex: 1, backgroundColor:Colors.White}}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <MainHeader />
       <View

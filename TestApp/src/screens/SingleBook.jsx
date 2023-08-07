@@ -33,7 +33,7 @@ const SingleBook = ({route}) => {
       <Ionicons
         name="arrow-back-outline"
         color="#000"
-        size={20}
+        size={scale(24)}
         onPress={back}
         style={{
           marginVertical: 15,
@@ -108,17 +108,20 @@ const styles = StyleSheet.create({
   },
   Box: {
     // backgroundColor: 'red',
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
-    
     elevation: 4,
-    // borderRadius: 20,
+    borderRadius: 10, // Optional: Add borderRadius for a rounded card
+    backgroundColor: Colors.White, // Optional: Add a background color to the card
+    padding: scale(10), // Optional: Add some padding to the card content
+    margin: scale(10), // Optional: Add some margin around the card
   },
+
   Image: {
     width: `80%`,
     height: verticalScale(350),

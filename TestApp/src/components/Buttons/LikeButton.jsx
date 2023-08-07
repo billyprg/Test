@@ -1,6 +1,7 @@
 import React, {useState, useRef} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Animated, View,StyleSheet} from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 
 const AnimatedIcon = Animated.createAnimatedComponent(AntDesign);
@@ -81,8 +82,12 @@ export const LikeButton = ({item, style}) => {
 const styles = StyleSheet.create({
     likeView:{
         backgroundColor: 'white',
-        borderRadius: 30,
-        padding:5,
+        borderRadius: scale(30),
+        height:scale(30),
+        width: scale(30),
+        alignItems:'center',
+        justifyContent:'center'
+        // padding:5,
 
     }
   });

@@ -1,5 +1,6 @@
 import { StyleSheet, Image, View,StatusBar } from 'react-native'
 import React from 'react'
+import { Colors } from '../../utils/Color'
 
 const SplashScreen = () => {
   return (
@@ -15,7 +16,7 @@ export default SplashScreen
 const styles = StyleSheet.create({
   Container:{
     flex:1,
-    backgroundColor:'#fff',
+    backgroundColor:Colors.White,
     justifyContent:'center',
     alignItems:'center'
   },
