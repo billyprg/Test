@@ -1,19 +1,21 @@
-import {StyleSheet, Text, View, Image, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, Image, StatusBar, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Font} from '../../utils/font';
 import { Colors } from '../../utils/Color';
+import { useNavigation } from '@react-navigation/native';
 
 const MainHeader = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.mainView}>
         <StatusBar />
       <Text style={styles.heading}>Hi Nick</Text>
-      <View style={styles.imageView}>
+      <TouchableOpacity onPress={()=>navigation.navigate('apipractice')} style={styles.imageView}>
         <Image
           source={require('../../assets/images/profile.png')}
           style={{height: '100%', width: '100%', borderRadius: 30}}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

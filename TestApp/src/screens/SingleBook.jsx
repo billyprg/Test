@@ -8,6 +8,7 @@ import {
   Pressable,
   Linking,
   ScrollView,
+  Button,
 } from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -21,7 +22,7 @@ import {scale,moderateScale,verticalScale} from 'react-native-size-matters';
 const {width} = Dimensions.get('window');
 const SingleBook = ({route}) => {
   const {item} = route.params;
-  console.log('item', item);
+  // console.log('item', item);
 
   const navigation = useNavigation();
 
@@ -65,6 +66,7 @@ const SingleBook = ({route}) => {
             </View>
           </View>
         </View>
+        <Button title = 'Click me ' onPress={()=>navigation.navigate('apipractice')}/>
         <Text style={styles.Name}>{item.title}</Text>
         <View style={styles.row}>
           <Text style={styles.Key}>Author:</Text>
