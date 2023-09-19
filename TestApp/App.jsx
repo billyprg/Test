@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import SplashScreen from './src/screens/Splash/SplashScreen';
 import Navigator from './src/navigation/Navigator';
+import { AuthProvider } from './src/context/AuthContext';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -15,9 +16,11 @@ const App = () => {
   }, []);
 
   return (
+    <AuthProvider>
     <>
       {loading ? <SplashScreen /> : <Navigator />}
     </>
+    </AuthProvider>
   );
 };
 
