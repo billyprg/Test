@@ -12,10 +12,8 @@ import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
 import SearchBox from '../components/SearchBox';
 import PostCard from '../components/Card/PostCard';
 import {
-  fetchNews,
   fetchPosts,
-  setSearchText,
-} from '../../redux/actions/actions'; // Assuming you have these action creators
+} from '../../redux/actions/actions'; 
 import {useDispatch, useSelector} from 'react-redux';
 import {Font} from '../utils/font';
 import NoResultComponent from '../components/NoResultComponent';
@@ -24,7 +22,6 @@ import {Colors} from '../utils/Color';
 
 const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [searchText, setSearchText] = useState('');
 
   const dispatch = useDispatch();
