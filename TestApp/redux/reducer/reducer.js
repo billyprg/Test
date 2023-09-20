@@ -1,32 +1,14 @@
 const initialState = {
-  books: [],
-  lora: [],
-  searchText: '',
   show_splash: null,
-  news: [],
+  post: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_SEARCH_TEXT':
+    case 'SET_POSTS':
       return {
         ...state,
-        searchText: action.payload,
-      };
-    case 'SET_BOOKS':
-      return {
-        ...state,
-        books: action.payload,
-      };
-    case 'SET_PRACBOOKS':
-      return {
-        ...state,
-        lora: action.payload,
-      };
-    case 'SET_NEWS':
-      return {
-        ...state,
-        news: action.payload,
+        post: action.payload,
       };
     case 'SHOW_SPLASH':
       return {
