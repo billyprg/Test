@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: moderateScale(10),
+    flex:1
   },
   error: {
     fontFamily: Font.PoppinsLight,
