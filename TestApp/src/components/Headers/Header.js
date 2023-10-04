@@ -5,12 +5,12 @@ import {Colors} from '../../utils/Color';
 import {useNavigation} from '@react-navigation/native';
 import {scale} from 'react-native-size-matters';
 
-const Header = () => {
+const Header = ({navigate}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.main}>
       <StatusBar />
-      <Text style={styles.heading}>Welcome, Bilal</Text>
+      <Text onPress={()=>navigation.navigate('all')} style={styles.heading}>Welcome, Bilal</Text>
       <View style={styles.imageContainer}>
         <Image
           source={require('../../assets/images/profile.png')}
